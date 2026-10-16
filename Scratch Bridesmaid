@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>A Special Surprise</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Courier+Prime:wght@400;700&family=Cormorant+Garamond:wght@500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+
+            --deep-burgundy: #7a1b1b;
+
+            --dusty-pink: #e5c1c1;
+
+            --white: #ffffff;
+
+            --heart-pink: #ffb6c1;
+
+        }
+
+
+        * {
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+
+            background-color:
+                var(--deep-burgundy);
+
+            margin: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            height: 100dvh;
+
+            -webkit-user-select: none;
+
+            user-select: none;
+
+            overflow: hidden;
+
+            touch-action: none;
+
+        }
+
+
+
+        /* =========================================
+           TOP TEXT
+           ========================================= */
+
+        .top-text {
+
+            position: absolute;
+
+            top: 12%;
+
+            font-size: 1.5rem;
+
+            text-align: center;
+
+            color: var(--white);
+
+            z-index: 1;
+
+            font-family:
+                'Courier Prime',
+                monospace;
+
+            padding: 0 20px;
+
+        }
+
+
+
+        /* =========================================
+           HEART
+           ========================================= */
+
+        .container {
+
+            position: relative;
+
+            width: 350px;
+
+            height: 350px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            transition:
+                width 0.4s ease,
+                height 0.4s ease;
+
+            clip-path:
+                url(#heartClip);
+
+            -webkit-clip-path:
+                url(#heartClip);
+
+        }
+
+
+
+        /* =========================================
+           MESSAGE
+           ========================================= */
+
+        .message-layer {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            color: var(--white);
+
+            text-align: center;
+
+            z-index: 1;
+
+            padding:
+                25px
+                20px
+                50px
+                20px;
+
+        }
+
+
+
+        .message-content {
+
+            width: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+
+        /* =========================================
+           CUSTOMER NAME
+           ========================================= */
+
+        .customer-name {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size: 1.5rem;
+
+            font-weight: 600;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.34em;
+
+            line-height: 1;
+
+            margin: 0;
+
+            padding-left: 0.34em;
+
+            white-space: nowrap;
+
+            text-align: center;
+
+            color: var(--white);
+
+        }
+
+
+
+        /* =========================================
+           WILL YOU BE MY
+           ========================================= */
+
+        .question-small {
+
+            font-family:
+                'Cormorant Garamond',
+                serif;
+
+            font-size: 1.35rem;
+
+            font-weight: 600;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.28em;
+
+            padding-left: 0.28em;
+
+            line-height: 1.2;
+
+            margin-top: 10px;
+
+            color: var(--white);
+
+            white-space: nowrap;
+
+        }
+
+
+
+        /* =========================================
+           BRIDESMAID WRAPPER
+           ========================================= */
+
+        .bridesmaid-wrapper {
+
+            width: 88%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            margin-top: 17px;
+
+            padding-left: 18px;
+
+            padding-right: 18px;
+
+            overflow: visible;
+
+        }
+
+
+
+        /* =========================================
+           BRIDESMAID
+           ========================================= */
+
+        .bridesmaid-word {
+
+            display: inline-block;
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
+            font-size: 3.85rem;
+
+            font-weight: 400;
+
+            line-height: 1.05;
+
+            color: var(--white);
+
+            white-space: nowrap;
+
+            text-align: center;
+
+            padding:
+                5px
+                14px
+                8px
+                14px;
+
+            margin: 0;
+
+            overflow: visible;
+
+            text-shadow:
+                0 1px 2px
+                rgba(0,0,0,0.12);
+
+        }
+
+
+
+        /* =========================================
+           SCRATCH INSTRUCTION
+           ========================================= */
+
+        .scratch-instruction {
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            z-index: 15;
+
+            color: var(--white);
+
+            text-shadow:
+                0px 1px 3px
+                rgba(0,0,0,0.3);
+
+            font-size: 1rem;
+
+            pointer-events: none;
+
+            font-family:
+                'Courier Prime',
+                monospace;
+
+            font-weight: bold;
+
+            transition:
+                opacity 0.5s;
+
+            white-space: nowrap;
+
+        }
+
+
+
+        /* =========================================
+           SCRATCH CANVAS
+           ========================================= */
+
+        #scratch-canvas {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            z-index: 10;
+
+            cursor: crosshair;
+
+            transition:
+                opacity 0.8s;
+
+        }
+
+
+
+        /* =========================================
+           FLOATING HEARTS / PETALS
+           ========================================= */
+
+        #heart-particles {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100vw;
+
+            height: 100vh;
+
+            pointer-events: none;
+
+            z-index: 20;
+
+        }
+
+
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (max-width: 400px) {
+
+            .top-text {
+
+                font-size: 1.2rem;
+
+            }
+
+
+            .customer-name {
+
+                font-size: 1.35rem;
+
+            }
+
+
+            .question-small {
+
+                font-size: 1.18rem;
+
+            }
+
+
+            .bridesmaid-word {
+
+                font-size: 3.45rem;
+
+            }
+
+
+            .bridesmaid-wrapper {
+
+                width: 90%;
+
+                padding-left: 14px;
+
+                padding-right: 14px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+<!-- =========================================
+     HEART SHAPE
+     ========================================= -->
+
+<svg
+    width="0"
+    height="0"
+    style="position:absolute"
+>
+
+    <defs>
+
+        <clipPath
+            id="heartClip"
+            clipPathUnits="objectBoundingBox"
+        >
+
+            <path d="
+
+                M .5 .814
+
+                C .5 .814
+                  .129 .586
+                  .129 .329
+
+                C .129 .186
+                  .257 .1
+                  .371 .1
+
+                C .443 .1
+                  .5 .157
+                  .5 .157
+
+                C .5 .157
+                  .557 .1
+                  .629 .1
+
+                C .743 .1
+                  .871 .186
+                  .871 .329
+
+                C .871 .586
+                  .5 .814
+                  .5 .814
+
+                Z
+
+            "/>
+
+        </clipPath>
+
+    </defs>
+
+</svg>
+
+
+
+<!-- =========================================
+     TOP TYPEWRITER
+     ========================================= -->
+
+<div
+    class="top-text"
+    id="typewriter"
+></div>
+
+
+
+<!-- =========================================
+     HEART
+     ========================================= -->
+
+<div
+    class="container"
+    id="heart-container"
+>
+
+
+    <div
+        class="message-layer"
+    >
+
+
+        <div
+            class="message-content"
+        >
+
+
+            <!-- NAME -->
+
+            <div
+                class="customer-name"
+                id="customer-name"
+            >
+
+                SOPHIA,
+
+            </div>
+
+
+
+            <!-- QUESTION -->
+
+            <div
+                class="question-small"
+            >
+
+                WILL YOU BE MY
+
+            </div>
+
+
+
+            <!-- BRIDESMAID -->
+
+            <div
+                class="bridesmaid-wrapper"
+                id="bridesmaid-wrapper"
+            >
+
+                <div
+                    class="bridesmaid-word"
+                    id="bridesmaid-word"
+                >
+
+                    Bridesmaid?
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- SCRATCH TEXT -->
+
+    <div
+        class="scratch-instruction"
+        id="instruction"
+    >
+
+        scratch to reveal
+
+    </div>
+
+
+
+    <!-- SCRATCH CANVAS -->
+
+    <canvas
+        id="scratch-canvas"
+        width="350"
+        height="350"
+    ></canvas>
+
+
+</div>
+
+
+
+<!-- =========================================
+     FLOATING HEARTS
+     ========================================= -->
+
+<canvas
+    id="heart-particles"
+></canvas>
+
+
+
+<script>
+
+
+    /* =========================================
+       ELEMENTS
+       ========================================= */
+
+    const canvas =
+        document.getElementById(
+            'scratch-canvas'
+        );
+
+
+    const ctx =
+        canvas.getContext(
+            '2d'
+        );
+
+
+    const pCanvas =
+        document.getElementById(
+            'heart-particles'
+        );
+
+
+    const pCtx =
+        pCanvas.getContext(
+            '2d'
+        );
+
+
+    const instruction =
+        document.getElementById(
+            'instruction'
+        );
+
+
+    const typewriterElement =
+        document.getElementById(
+            'typewriter'
+        );
+
+
+    const heartContainer =
+        document.getElementById(
+            'heart-container'
+        );
+
+
+    const customerName =
+        document.getElementById(
+            'customer-name'
+        );
+
+
+    const bridesmaidWord =
+        document.getElementById(
+            'bridesmaid-word'
+        );
+
+
+    const bridesmaidWrapper =
+        document.getElementById(
+            'bridesmaid-wrapper'
+        );
+
+
+
+    let isDrawing =
+        false;
+
+
+    let particles =
+        [];
+
+
+    let isRevealed =
+        false;
+
+
+    let scratchCounter =
+        0;
+
+
+
+    /* =========================================
+       CUSTOMER NAME
+       ========================================= */
+
+    function updateCustomerName() {
+
+
+        const urlParams =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        let name =
+            urlParams.get(
+                'name'
+            );
+
+
+        if (!name) {
+
+            name =
+                "Sophia";
+
+        }
+
+
+        name =
+            name.trim();
+
+
+        /*
+        Automatically add comma.
+        */
+
+        customerName.textContent =
+            name + ",";
+
+
+        adjustHeartForName(
+            name
+        );
+
+
+        fitBridesmaidText();
+
+    }
+
+
+
+    /* =========================================
+       HEART / NAME SIZING
+       ========================================= */
+
+    function adjustHeartForName(name) {
+
+
+        const length =
+            name.length;
+
+
+        let heartWidth =
+            350;
+
+
+        let heartHeight =
+            350;
+
+
+        let nameFontSize =
+            1.5;
+
+
+        let nameSpacing =
+            0.34;
+
+
+
+        if (length <= 8) {
+
+
+            heartWidth =
+                350;
+
+
+            heartHeight =
+                350;
+
+
+            nameFontSize =
+                1.5;
+
+
+            nameSpacing =
+                0.34;
+
+        }
+
+
+
+        else if (length <= 12) {
+
+
+            heartWidth =
+                370;
+
+
+            heartHeight =
+                355;
+
+
+            nameFontSize =
+                1.4;
+
+
+            nameSpacing =
+                0.27;
+
+        }
+
+
+
+        else if (length <= 17) {
+
+
+            heartWidth =
+                390;
+
+
+            heartHeight =
+                360;
+
+
+            nameFontSize =
+                1.25;
+
+
+            nameSpacing =
+                0.19;
+
+        }
+
+
+
+        else if (length <= 23) {
+
+
+            heartWidth =
+                410;
+
+
+            heartHeight =
+                365;
+
+
+            nameFontSize =
+                1.1;
+
+
+            nameSpacing =
+                0.12;
+
+        }
+
+
+
+        else {
+
+
+            heartWidth =
+                430;
+
+
+            heartHeight =
+                370;
+
+
+            nameFontSize =
+                1;
+
+
+            nameSpacing =
+                0.07;
+
+        }
+
+
+
+        /*
+        Keep heart inside smaller phone screens.
+        */
+
+        const maximumWidth =
+            window.innerWidth - 24;
+
+
+        if (
+            heartWidth >
+            maximumWidth
+        ) {
+
+
+            heartWidth =
+                maximumWidth;
+
+        }
+
+
+
+        heartContainer.style.width =
+            heartWidth + "px";
+
+
+        heartContainer.style.height =
+            heartHeight + "px";
+
+
+        customerName.style.fontSize =
+            nameFontSize + "rem";
+
+
+        customerName.style.letterSpacing =
+            nameSpacing + "em";
+
+
+        customerName.style.paddingLeft =
+            nameSpacing + "em";
+
+
+
+        /*
+        Final name fit.
+        */
+
+        requestAnimationFrame(
+            () => {
+
+
+                let currentFont =
+                    nameFontSize;
+
+
+                let currentSpacing =
+                    nameSpacing;
+
+
+                const maximumTextWidth =
+                    heartContainer.clientWidth
+                    *
+                    0.70;
+
+
+                while (
+
+                    customerName.scrollWidth >
+                    maximumTextWidth
+
+                    &&
+
+                    currentFont >
+                    0.78
+
+                ) {
+
+
+                    currentFont -=
+                        0.03;
+
+
+                    if (
+                        currentSpacing >
+                        0.03
+                    ) {
+
+
+                        currentSpacing -=
+                            0.01;
+
+                    }
+
+
+                    customerName.style.fontSize =
+                        currentFont + "rem";
+
+
+                    customerName.style.letterSpacing =
+                        currentSpacing + "em";
+
+
+                    customerName.style.paddingLeft =
+                        currentSpacing + "em";
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* =========================================
+       FIT BRIDESMAID TEXT
+       ========================================= */
+
+    function fitBridesmaidText() {
+
+
+        requestAnimationFrame(
+            () => {
+
+
+                let size =
+
+                    window.innerWidth <= 400
+
+                    ?
+
+                    3.45
+
+                    :
+
+                    3.85;
+
+
+
+                bridesmaidWord.style.fontSize =
+                    size + "rem";
+
+
+                const safeWidth =
+                    bridesmaidWrapper.clientWidth
+                    -
+                    40;
+
+
+
+                while (
+
+                    bridesmaidWord.scrollWidth >
+                    safeWidth
+
+                    &&
+
+                    size >
+                    2.8
+
+                ) {
+
+
+                    size -=
+                        0.05;
+
+
+                    bridesmaidWord.style.fontSize =
+                        size + "rem";
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    updateCustomerName();
+
+
+
+    window.addEventListener(
+        'resize',
+        () => {
+
+
+            updateCustomerName();
+
+
+            fitBridesmaidText();
+
+        }
+    );
+
+
+
+    /*
+    Wait for the real fonts to load before
+    checking widths.
+    */
+
+    if (
+        document.fonts
+    ) {
+
+
+        document.fonts.ready.then(
+            () => {
+
+
+                updateCustomerName();
+
+
+                fitBridesmaidText();
+
+            }
+        );
+
+    }
+
+
+
+    /* =========================================
+       TYPEWRITER
+       ========================================= */
+
+    const text =
+        "I have something to ask...";
+
+
+    let charIndex =
+        0;
+
+
+    function type() {
+
+
+        if (
+            charIndex <
+            text.length
+        ) {
+
+
+            typewriterElement.textContent +=
+                text.charAt(
+                    charIndex
+                );
+
+
+            charIndex++;
+
+
+            setTimeout(
+                type,
+                100
+            );
+
+        }
+
+    }
+
+
+    type();
+
+
+
+    /* ============================================================
+       ORIGINAL PARTICLE CANVAS CODE
+       FROM YOUR VERY FIRST VERSION
+       ============================================================ */
+
+    function resize() {
+
+
+        pCanvas.width =
+            window.innerWidth;
+
+
+        pCanvas.height =
+            window.innerHeight;
+
+    }
+
+
+    window.addEventListener(
+        'resize',
+        resize
+    );
+
+
+    resize();
+
+
+
+    /* =========================================
+       SCRATCH COVER
+       ========================================= */
+
+    function fillCanvas() {
+
+
+        ctx.fillStyle =
+            '#e5c1c1';
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+    }
+
+
+
+    /* ============================================================
+       ORIGINAL LITTLE HEART / PETAL DRAWING
+       ============================================================ */
+
+    function drawHeartParticle(
+        c,
+        x,
+        y,
+        size,
+        color,
+        alpha
+    ) {
+
+
+        c.save();
+
+
+        c.globalAlpha =
+            alpha;
+
+
+        c.fillStyle =
+            color;
+
+
+        c.beginPath();
+
+
+        c.moveTo(
+            x,
+            y
+        );
+
+
+        c.bezierCurveTo(
+            x,
+            y - size/2,
+            x - size,
+            y - size/2,
+            x - size,
+            y
+        );
+
+
+        c.bezierCurveTo(
+            x - size,
+            y + size/2,
+            x,
+            y + size,
+            x,
+            y + size * 1.2
+        );
+
+
+        c.bezierCurveTo(
+            x,
+            y + size,
+            x + size,
+            y + size/2,
+            x + size,
+            y
+        );
+
+
+        c.bezierCurveTo(
+            x + size,
+            y - size/2,
+            x,
+            y - size/2,
+            x,
+            y
+        );
+
+
+        c.fill();
+
+
+        c.restore();
+
+    }
+
+
+
+    /* ============================================================
+       ORIGINAL PARTICLE MOVEMENT
+       ============================================================ */
+
+    class PinkHeartParticle {
+
+
+        constructor() {
+
+
+            this.x =
+                Math.random()
+                *
+                pCanvas.width;
+
+
+            /*
+            Every heart starts just below
+            the bottom of the screen.
+            */
+
+            this.y =
+                pCanvas.height
+                +
+                20;
+
+
+            /*
+            ORIGINAL SIZE:
+            6px - 18px
+            */
+
+            this.size =
+                Math.random()
+                *
+                12
+                +
+                6;
+
+
+            /*
+            ORIGINAL UPWARD SPEED
+            */
+
+            this.speedY =
+                -(
+                    Math.random()
+                    *
+                    2.5
+                    +
+                    1
+                );
+
+
+            /*
+            ORIGINAL GENTLE LEFT/RIGHT DRIFT
+            */
+
+            this.speedX =
+                (
+                    Math.random()
+                    -
+                    0.5
+                )
+                *
+                2;
+
+
+            this.life =
+                1.0;
+
+
+            /*
+            ORIGINAL SLOW FADE
+            */
+
+            this.decay =
+                0.0015;
+
+
+            this.color =
+                '#ffb6c1';
+
+        }
+
+
+
+        update() {
+
+
+            this.y +=
+                this.speedY;
+
+
+            this.x +=
+                this.speedX;
+
+
+            this.life -=
+                this.decay;
+
+        }
+
+
+
+        draw() {
+
+
+            drawHeartParticle(
+
+                pCtx,
+
+                this.x,
+
+                this.y,
+
+                this.size,
+
+                this.color,
+
+                this.life
+
+            );
+
+        }
+
+    }
+
+
+
+    /* ============================================================
+       ORIGINAL PARTICLE ANIMATION
+       ============================================================ */
+
+    function animate() {
+
+
+        pCtx.clearRect(
+            0,
+            0,
+            pCanvas.width,
+            pCanvas.height
+        );
+
+
+        particles =
+            particles.filter(
+                p =>
+                    p.life > 0
+            );
+
+
+        particles.forEach(
+            p => {
+
+
+                p.update();
+
+
+                p.draw();
+
+            }
+        );
+
+
+        requestAnimationFrame(
+            animate
+        );
+
+    }
+
+
+    animate();
+
+
+
+    /* ============================================================
+       ORIGINAL FINAL HEART / PETAL APPEARANCE
+       EXACT TIMING RESTORED
+       ============================================================ */
+
+    function triggerFinalHearts() {
+
+
+        let count =
+            0;
+
+
+        const interval =
+            setInterval(
+                () => {
+
+
+                    /*
+                    ORIGINAL:
+                    TWO hearts added together.
+                    */
+
+                    particles.push(
+                        new PinkHeartParticle()
+                    );
+
+
+                    particles.push(
+                        new PinkHeartParticle()
+                    );
+
+
+                    count++;
+
+
+                    /*
+                    ORIGINAL:
+                    run for approximately
+                    40 rounds.
+                    */
+
+                    if (
+                        count > 40
+                    ) {
+
+
+                        clearInterval(
+                            interval
+                        );
+
+                    }
+
+                },
+
+                /*
+                ORIGINAL:
+                every 250 milliseconds.
+                */
+
+                250
+
+            );
+
+    }
+
+
+
+    /* =========================================
+       ORIGINAL SCRATCH BEHAVIOR
+       ========================================= */
+
+    function scratch(e) {
+
+
+        if (
+            !isDrawing
+            ||
+            isRevealed
+        ) {
+
+
+            return;
+
+        }
+
+
+
+        const rect =
+            canvas.getBoundingClientRect();
+
+
+
+        const clientX =
+
+            (
+                e.touches
+                &&
+                e.touches[0]
+            )
+
+            ?
+
+            e.touches[0].clientX
+
+            :
+
+            e.clientX;
+
+
+
+        const clientY =
+
+            (
+                e.touches
+                &&
+                e.touches[0]
+            )
+
+            ?
+
+            e.touches[0].clientY
+
+            :
+
+            e.clientY;
+
+
+
+        const x =
+
+            (
+                clientX
+                -
+                rect.left
+            )
+
+            *
+
+            (
+                canvas.width
+                /
+                rect.width
+            );
+
+
+
+        const y =
+
+            (
+                clientY
+                -
+                rect.top
+            )
+
+            *
+
+            (
+                canvas.height
+                /
+                rect.height
+            );
+
+
+
+        ctx.globalCompositeOperation =
+            'destination-out';
+
+
+        ctx.beginPath();
+
+
+        /*
+        ORIGINAL SCRATCH CIRCLE SIZE
+        */
+
+        ctx.arc(
+            x,
+            y,
+            30,
+            0,
+            Math.PI * 2
+        );
+
+
+        ctx.fill();
+
+
+
+        scratchCounter++;
+
+
+
+        /*
+        ORIGINAL instruction fade.
+        */
+
+        if (
+            scratchCounter >
+            10
+        ) {
+
+
+            instruction.style.opacity =
+                '0';
+
+        }
+
+
+
+        /*
+        ORIGINAL reveal point.
+        */
+
+        if (
+            scratchCounter >
+            150
+        ) {
+
+
+            isRevealed =
+                true;
+
+
+            canvas.style.opacity =
+                '0';
+
+
+            /*
+            Original floating hearts start here.
+            */
+
+            triggerFinalHearts();
+
+        }
+
+    }
+
+
+
+    /* =========================================
+       ORIGINAL MOUSE EVENTS
+       ========================================= */
+
+    canvas.addEventListener(
+        'mousedown',
+        () => {
+
+
+            isDrawing =
+                true;
+
+        }
+    );
+
+
+    window.addEventListener(
+        'mouseup',
+        () => {
+
+
+            isDrawing =
+                false;
+
+        }
+    );
+
+
+    window.addEventListener(
+        'mousemove',
+        scratch
+    );
+
+
+
+    /* =========================================
+       ORIGINAL TOUCH EVENTS
+       ========================================= */
+
+    canvas.addEventListener(
+        'touchstart',
+        (e) => {
+
+
+            isDrawing =
+                true;
+
+
+            e.preventDefault();
+
+        },
+        {
+            passive: false
+        }
+    );
+
+
+    window.addEventListener(
+        'touchend',
+        () => {
+
+
+            isDrawing =
+                false;
+
+        }
+    );
+
+
+    window.addEventListener(
+        'touchmove',
+        scratch,
+        {
+            passive: false
+        }
+    );
+
+
+
+    /* =========================================
+       INITIALIZE
+       ========================================= */
+
+    fillCanvas();
+
+
+</script>
+
+</body>
+
+</html>
